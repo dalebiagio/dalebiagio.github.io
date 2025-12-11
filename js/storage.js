@@ -67,8 +67,8 @@ class StorageManager {
             compressionType: this.load(STORAGE_KEYS.compressionType, 'bzip2'),
             recordsMillions: this.load(STORAGE_KEYS.recordsMillions, 150),
             bandwidthLimitTb: this.load(STORAGE_KEYS.bandwidthLimitTb, 2),
-            profileChangeRate: this.load(STORAGE_KEYS.profileChangeRate, 10),
-            consentChangeRate: this.load(STORAGE_KEYS.consentChangeRate, 5),
+            profileChangeRate: this.load(STORAGE_KEYS.profileChangeRate, 15),
+            consentChangeRate: this.load(STORAGE_KEYS.consentChangeRate, 15),
             growthDate: this.load(STORAGE_KEYS.growthDate, this.getDefaultGrowthDate()),
             growthMultiplier: this.load(STORAGE_KEYS.growthMultiplier, 1.5),
             uiState: this.load(STORAGE_KEYS.uiState, {
