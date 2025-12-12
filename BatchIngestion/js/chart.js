@@ -67,7 +67,7 @@ export class ChartManager {
                 borderDash: [5, 5],
                 label: {
                     display: true,
-                    content: 'Schema Growth',
+                    content: 'Payload Growth',
                     position: 'start',
                     backgroundColor: 'rgba(168, 85, 247, 0.9)',
                     color: '#fff',
@@ -111,7 +111,7 @@ export class ChartManager {
         // Build datasets array
         const datasets = [
             {
-                label: 'Original Schema',
+                label: 'Original Payload',
                 data: originalTB,
                 borderColor: 'rgb(59, 130, 246)',
                 backgroundColor: originalGradient,
@@ -129,7 +129,7 @@ export class ChartManager {
         // Only add optimized line when toggle is on
         if (useOptimized) {
             datasets.push({
-                label: 'Optimized Schema',
+                label: 'Optimized Payload',
                 data: optimizedTB,
                 borderColor: 'rgb(34, 197, 94)',
                 backgroundColor: optimizedGradient,

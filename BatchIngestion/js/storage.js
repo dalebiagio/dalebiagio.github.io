@@ -1,9 +1,9 @@
 import {
     STORAGE_KEYS,
-    DEFAULT_PROFILE_SCHEMA,
-    DEFAULT_CONSENT_SCHEMA,
-    DEFAULT_OPTIMIZED_PROFILE_SCHEMA,
-    DEFAULT_OPTIMIZED_CONSENT_SCHEMA
+    DEFAULT_PROFILE_PAYLOAD,
+    DEFAULT_CONSENT_PAYLOAD,
+    DEFAULT_OPTIMIZED_PROFILE_PAYLOAD,
+    DEFAULT_OPTIMIZED_CONSENT_PAYLOAD
 } from './constants.js';
 
 class StorageManager {
@@ -59,10 +59,10 @@ class StorageManager {
 
     loadAllSettings() {
         return {
-            profileJson: this.load(STORAGE_KEYS.profileJson, JSON.stringify(DEFAULT_PROFILE_SCHEMA, null, 2)),
-            consentJson: this.load(STORAGE_KEYS.consentJson, JSON.stringify(DEFAULT_CONSENT_SCHEMA, null, 2)),
-            optimizedProfileJson: this.load(STORAGE_KEYS.optimizedProfileJson, JSON.stringify(DEFAULT_OPTIMIZED_PROFILE_SCHEMA, null, 2)),
-            optimizedConsentJson: this.load(STORAGE_KEYS.optimizedConsentJson, JSON.stringify(DEFAULT_OPTIMIZED_CONSENT_SCHEMA, null, 2)),
+            profileJson: this.load(STORAGE_KEYS.profileJson, JSON.stringify(DEFAULT_PROFILE_PAYLOAD, null, 2)),
+            consentJson: this.load(STORAGE_KEYS.consentJson, JSON.stringify(DEFAULT_CONSENT_PAYLOAD, null, 2)),
+            optimizedProfileJson: this.load(STORAGE_KEYS.optimizedProfileJson, JSON.stringify(DEFAULT_OPTIMIZED_PROFILE_PAYLOAD, null, 2)),
+            optimizedConsentJson: this.load(STORAGE_KEYS.optimizedConsentJson, JSON.stringify(DEFAULT_OPTIMIZED_CONSENT_PAYLOAD, null, 2)),
             useOptimized: this.load(STORAGE_KEYS.useOptimized, false),
             compressionType: this.load(STORAGE_KEYS.compressionType, 'bzip2'),
             recordsMillions: this.load(STORAGE_KEYS.recordsMillions, 150),

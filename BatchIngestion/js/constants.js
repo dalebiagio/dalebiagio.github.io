@@ -1,5 +1,5 @@
-// Default schemas
-export const DEFAULT_PROFILE_SCHEMA = {
+// Default payloads
+export const DEFAULT_PROFILE_PAYLOAD = {
   "neustarOffline": "NOFFE20C7D60430B4F4D",
   "neustarOnline": "NON8D2F5EE0E4524FCC",
   "knownUUID": "3fb4a65f-7ce8-4cc1-8a72-54145be8cf42",
@@ -312,7 +312,7 @@ export const DEFAULT_PROFILE_SCHEMA = {
   ]
 };
 
-export const DEFAULT_CONSENT_SCHEMA = {
+export const DEFAULT_CONSENT_PAYLOAD = {
     "knownUUID": "550e8400-e29b-41d4-a716-446655440000",
     "consentTimestamp": "2024-01-15T10:30:00Z",
     "consentVersion": "2.1",
@@ -335,7 +335,7 @@ export const DEFAULT_CONSENT_SCHEMA = {
     "privacyPolicyAcceptedAt": "2024-01-15T10:30:00Z"
 };
 
-// Optimized schemas with shorthand attribute names
+// Optimized payloads with shorthand attribute names
 // Key mappings:
 // Profile: nOff=neustarOffline, nOn=neustarOnline, uid=knownUUID, wl=wireless, wn=wireline
 // c=ctn, ad=activationDate, ss=subscriberStatus, fni=firstnetIndicator, dv=device, mk=make, id=itemId, md=model
@@ -346,7 +346,7 @@ export const DEFAULT_CONSENT_SCHEMA = {
 // fn=firstName, ln=lastName, bl=billingLanguage, cco=convergedCustomerOption, cpni=cpniIndicator
 // Wireline: us=maxUploadSpeed, gn=givenName, fmn=familyName, bal1=billingAddressLine1, bco=billingCountry
 // pt=productTypes, uat=uversedtvAccountType, uast=uversedtvAccountSubType
-export const DEFAULT_OPTIMIZED_PROFILE_SCHEMA = {
+export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
   "nOff": "NOFFE20C7D60430B4F4D",
   "nOn": "NON8D2F5EE0E4524FCC",
   "uid": "3fb4a65f-7ce8-4cc1-8a72-54145be8cf42",
@@ -446,7 +446,7 @@ export const DEFAULT_OPTIMIZED_PROFILE_SCHEMA = {
   ]
 };
 
-export const DEFAULT_OPTIMIZED_CONSENT_SCHEMA = {
+export const DEFAULT_OPTIMIZED_CONSENT_PAYLOAD = {
     "uid": "550e8400-e29b-41d4-a716-446655440000",
     "ts": "2024-01-15T10:30:00Z",
     "v": "2.1",

@@ -62,11 +62,11 @@ export class Calculator {
             };
         }
 
-        // Get byte lengths for original schemas
+        // Get byte lengths for original payloads
         const profileBytes = this.getByteLength(profileJson);
         const consentBytes = this.getByteLength(consentJson);
 
-        // Get byte lengths for optimized schemas
+        // Get byte lengths for optimized payloads
         const optimizedProfileBytes = this.getByteLength(optimizedProfileJson);
         const optimizedConsentBytes = this.getByteLength(optimizedConsentJson);
 
@@ -87,7 +87,7 @@ export class Calculator {
         const totalRecords = recordsMillions * 1000000;
         const annualLimitBytes = bandwidthLimitTb * 1024 * 1024 * 1024 * 1024;
 
-        // Calculate for original schema
+        // Calculate for original payload
         const originalCalc = this.calculateMetrics({
             profileCompressed,
             consentCompressed,
@@ -100,7 +100,7 @@ export class Calculator {
             growthMultiplier
         });
 
-        // Calculate for optimized schema
+        // Calculate for optimized payload
         const optimizedCalc = this.calculateMetrics({
             profileCompressed: optimizedProfileCompressed,
             consentCompressed: optimizedConsentCompressed,
@@ -133,13 +133,13 @@ export class Calculator {
 
         this.results = {
             valid: true,
-            // Original schema info
+            // Original payload info
             profileBytes,
             consentBytes,
             profileCompressed,
             consentCompressed,
             combinedCompressed,
-            // Optimized schema info
+            // Optimized payload info
             optimizedProfileBytes,
             optimizedConsentBytes,
             optimizedProfileCompressed,

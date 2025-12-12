@@ -3,10 +3,10 @@ import { calculator } from './calculator.js';
 import { chartManager } from './chart.js';
 import {
     STORAGE_KEYS,
-    DEFAULT_PROFILE_SCHEMA,
-    DEFAULT_CONSENT_SCHEMA,
-    DEFAULT_OPTIMIZED_PROFILE_SCHEMA,
-    DEFAULT_OPTIMIZED_CONSENT_SCHEMA
+    DEFAULT_PROFILE_PAYLOAD,
+    DEFAULT_CONSENT_PAYLOAD,
+    DEFAULT_OPTIMIZED_PROFILE_PAYLOAD,
+    DEFAULT_OPTIMIZED_CONSENT_PAYLOAD
 } from './constants.js';
 import { formatNumber, formatBytes, formatPercent, formatDays, formatDate, formatCompactNumber } from './formatters.js';
 
@@ -32,9 +32,9 @@ class App {
 
     cacheElements() {
         this.elements = {
-            // Original Schema
-            profileSchema: document.getElementById('profileSchema'),
-            consentSchema: document.getElementById('consentSchema'),
+            // Original Payload
+            profilePayload: document.getElementById('profilePayload'),
+            consentPayload: document.getElementById('consentPayload'),
             profilePanel: document.getElementById('profilePanel'),
             consentPanel: document.getElementById('consentPanel'),
             profilePreview: document.getElementById('profilePreview'),
@@ -46,9 +46,9 @@ class App {
             profileToggle: document.getElementById('profileToggle'),
             consentToggle: document.getElementById('consentToggle'),
 
-            // Optimized Schema
-            optimizedProfileSchema: document.getElementById('optimizedProfileSchema'),
-            optimizedConsentSchema: document.getElementById('optimizedConsentSchema'),
+            // Optimized Payload
+            optimizedProfilePayload: document.getElementById('optimizedProfilePayload'),
+            optimizedConsentPayload: document.getElementById('optimizedConsentPayload'),
             optimizedProfilePanel: document.getElementById('optimizedProfilePanel'),
             optimizedConsentPanel: document.getElementById('optimizedConsentPanel'),
             optimizedProfilePreview: document.getElementById('optimizedProfilePreview'),
@@ -119,13 +119,13 @@ class App {
     loadSettings() {
         const settings = storage.loadAllSettings();
 
-        // Original schemas
-        this.elements.profileSchema.value = settings.profileJson;
-        this.elements.consentSchema.value = settings.consentJson;
+        // Original payloads
+        this.elements.profilePayload.value = settings.profileJson;
+        this.elements.consentPayload.value = settings.consentJson;
 
-        // Optimized schemas
-        this.elements.optimizedProfileSchema.value = settings.optimizedProfileJson;
-        this.elements.optimizedConsentSchema.value = settings.optimizedConsentJson;
+        // Optimized payloads
+        this.elements.optimizedProfilePayload.value = settings.optimizedProfileJson;
+        this.elements.optimizedConsentPayload.value = settings.optimizedConsentJson;
         this.elements.useOptimized.checked = settings.useOptimized;
 
         // Config
@@ -155,29 +155,29 @@ class App {
     }
 
     setupEventListeners() {
-        // Original schema textareas
-        this.elements.profileSchema.addEventListener('input', () => {
+        // Original payload textareas
+        this.elements.profilePayload.addEventListener('input', () => {
             this.updatePreviews();
-            this.debouncedSave(STORAGE_KEYS.profileJson, this.elements.profileSchema.value);
+            this.debouncedSave(STORAGE_KEYS.profileJson, this.elements.profilePayload.value);
             this.calculate();
         });
 
-        this.elements.consentSchema.addEventListener('input', () => {
+        this.elements.consentPayload.addEventListener('input', () => {
             this.updatePreviews();
-            this.debouncedSave(STORAGE_KEYS.consentJson, this.elements.consentSchema.value);
+            this.debouncedSave(STORAGE_KEYS.consentJson, this.elements.consentPayload.value);
             this.calculate();
         });
 
-        // Optimized schema textareas
-        this.elements.optimizedProfileSchema.addEventListener('input', () => {
+        // Optimized payload textareas
+        this.elements.optimizedProfilePayload.addEventListener('input', () => {
             this.updatePreviews();
-            this.debouncedSave(STORAGE_KEYS.optimizedProfileJson, this.elements.optimizedProfileSchema.value);
+            this.debouncedSave(STORAGE_KEYS.optimizedProfileJson, this.elements.optimizedProfilePayload.value);
             this.calculate();
         });
 
-        this.elements.optimizedConsentSchema.addEventListener('input', () => {
+        this.elements.optimizedConsentPayload.addEventListener('input', () => {
             this.updatePreviews();
-            this.debouncedSave(STORAGE_KEYS.optimizedConsentJson, this.elements.optimizedConsentSchema.value);
+            this.debouncedSave(STORAGE_KEYS.optimizedConsentJson, this.elements.optimizedConsentPayload.value);
             this.calculate();
         });
 
@@ -188,11 +188,11 @@ class App {
             this.calculate();
         });
 
-        // Schema toggles
-        this.elements.profileToggle.addEventListener('click', () => this.toggleSchema('profile'));
-        this.elements.consentToggle.addEventListener('click', () => this.toggleSchema('consent'));
-        this.elements.optimizedProfileToggle.addEventListener('click', () => this.toggleSchema('optimizedProfile'));
-        this.elements.optimizedConsentToggle.addEventListener('click', () => this.toggleSchema('optimizedConsent'));
+        // Payload toggles
+        this.elements.profileToggle.addEventListener('click', () => this.togglePayload('profile'));
+        this.elements.consentToggle.addEventListener('click', () => this.togglePayload('consent'));
+        this.elements.optimizedProfileToggle.addEventListener('click', () => this.togglePayload('optimizedProfile'));
+        this.elements.optimizedConsentToggle.addEventListener('click', () => this.togglePayload('optimizedConsent'));
 
         // Compression
         this.elements.compressionType.addEventListener('change', () => {
@@ -269,7 +269,7 @@ class App {
         document.getElementById('resetBtn').addEventListener('click', () => this.resetToDefaults());
     }
 
-    toggleSchema(type) {
+    togglePayload(type) {
         const panelMap = {
             profile: this.elements.profilePanel,
             consent: this.elements.consentPanel,
@@ -296,17 +296,17 @@ class App {
 
     updatePreviews() {
         // Original
-        const profileLines = this.elements.profileSchema.value.split('\n').slice(0, 3);
+        const profileLines = this.elements.profilePayload.value.split('\n').slice(0, 3);
         this.elements.profilePreview.textContent = profileLines.join('\n') + '\n...';
 
-        const consentLines = this.elements.consentSchema.value.split('\n').slice(0, 3);
+        const consentLines = this.elements.consentPayload.value.split('\n').slice(0, 3);
         this.elements.consentPreview.textContent = consentLines.join('\n') + '\n...';
 
         // Optimized
-        const optProfileLines = this.elements.optimizedProfileSchema.value.split('\n').slice(0, 3);
+        const optProfileLines = this.elements.optimizedProfilePayload.value.split('\n').slice(0, 3);
         this.elements.optimizedProfilePreview.textContent = optProfileLines.join('\n') + '\n...';
 
-        const optConsentLines = this.elements.optimizedConsentSchema.value.split('\n').slice(0, 3);
+        const optConsentLines = this.elements.optimizedConsentPayload.value.split('\n').slice(0, 3);
         this.elements.optimizedConsentPreview.textContent = optConsentLines.join('\n') + '\n...';
     }
 
@@ -325,10 +325,10 @@ class App {
 
     getInputs() {
         return {
-            profileJson: this.elements.profileSchema.value,
-            consentJson: this.elements.consentSchema.value,
-            optimizedProfileJson: this.elements.optimizedProfileSchema.value,
-            optimizedConsentJson: this.elements.optimizedConsentSchema.value,
+            profileJson: this.elements.profilePayload.value,
+            consentJson: this.elements.consentPayload.value,
+            optimizedProfileJson: this.elements.optimizedProfilePayload.value,
+            optimizedConsentJson: this.elements.optimizedConsentPayload.value,
             useOptimized: this.elements.useOptimized.checked,
             compressionType: this.elements.compressionType.value,
             recordsMillions: parseFloat(this.elements.recordsToHydrate.value) || 0,
@@ -344,13 +344,13 @@ class App {
         const inputs = this.getInputs();
         const results = calculator.calculate(inputs);
 
-        // Update byte counts for original schemas
+        // Update byte counts for original payloads
         const profileBytes = new TextEncoder().encode(inputs.profileJson).length;
         const consentBytes = new TextEncoder().encode(inputs.consentJson).length;
         this.elements.profileByteCount.textContent = formatNumber(profileBytes) + ' bytes';
         this.elements.consentByteCount.textContent = formatNumber(consentBytes) + ' bytes';
 
-        // Update byte counts for optimized schemas
+        // Update byte counts for optimized payloads
         const optProfileBytes = new TextEncoder().encode(inputs.optimizedProfileJson).length;
         const optConsentBytes = new TextEncoder().encode(inputs.optimizedConsentJson).length;
         this.elements.optimizedProfileByteCount.textContent = formatNumber(optProfileBytes) + ' bytes';
@@ -358,25 +358,25 @@ class App {
 
         // Handle validation errors
         if (!results.valid) {
-            // Original schema errors
-            this.elements.profileSchema.classList.toggle('error', !!results.profileError);
-            this.elements.consentSchema.classList.toggle('error', !!results.consentError);
+            // Original payload errors
+            this.elements.profilePayload.classList.toggle('error', !!results.profileError);
+            this.elements.consentPayload.classList.toggle('error', !!results.consentError);
             this.elements.profileError.textContent = results.profileError ? 'Invalid JSON' : '';
             this.elements.consentError.textContent = results.consentError ? 'Invalid JSON' : '';
 
-            // Optimized schema errors
-            this.elements.optimizedProfileSchema.classList.toggle('error', !!results.optimizedProfileError);
-            this.elements.optimizedConsentSchema.classList.toggle('error', !!results.optimizedConsentError);
+            // Optimized payload errors
+            this.elements.optimizedProfilePayload.classList.toggle('error', !!results.optimizedProfileError);
+            this.elements.optimizedConsentPayload.classList.toggle('error', !!results.optimizedConsentError);
             this.elements.optimizedProfileError.textContent = results.optimizedProfileError ? 'Invalid JSON' : '';
             this.elements.optimizedConsentError.textContent = results.optimizedConsentError ? 'Invalid JSON' : '';
             return;
         }
 
         // Clear all errors
-        this.elements.profileSchema.classList.remove('error');
-        this.elements.consentSchema.classList.remove('error');
-        this.elements.optimizedProfileSchema.classList.remove('error');
-        this.elements.optimizedConsentSchema.classList.remove('error');
+        this.elements.profilePayload.classList.remove('error');
+        this.elements.consentPayload.classList.remove('error');
+        this.elements.optimizedProfilePayload.classList.remove('error');
+        this.elements.optimizedConsentPayload.classList.remove('error');
         this.elements.profileError.textContent = '';
         this.elements.consentError.textContent = '';
         this.elements.optimizedProfileError.textContent = '';
@@ -495,13 +495,13 @@ class App {
 
         storage.clear();
 
-        // Original schemas
-        this.elements.profileSchema.value = JSON.stringify(DEFAULT_PROFILE_SCHEMA, null, 2);
-        this.elements.consentSchema.value = JSON.stringify(DEFAULT_CONSENT_SCHEMA, null, 2);
+        // Original payloads
+        this.elements.profilePayload.value = JSON.stringify(DEFAULT_PROFILE_PAYLOAD, null, 2);
+        this.elements.consentPayload.value = JSON.stringify(DEFAULT_CONSENT_PAYLOAD, null, 2);
 
-        // Optimized schemas
-        this.elements.optimizedProfileSchema.value = JSON.stringify(DEFAULT_OPTIMIZED_PROFILE_SCHEMA, null, 2);
-        this.elements.optimizedConsentSchema.value = JSON.stringify(DEFAULT_OPTIMIZED_CONSENT_SCHEMA, null, 2);
+        // Optimized payloads
+        this.elements.optimizedProfilePayload.value = JSON.stringify(DEFAULT_OPTIMIZED_PROFILE_PAYLOAD, null, 2);
+        this.elements.optimizedConsentPayload.value = JSON.stringify(DEFAULT_OPTIMIZED_CONSENT_PAYLOAD, null, 2);
         this.elements.useOptimized.checked = false;
 
         // Config

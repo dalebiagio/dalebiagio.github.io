@@ -13,34 +13,34 @@
     transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Schema panel animations */
-.schema-panel {
+/* Payload panel animations */
+.payload-panel {
     max-height: 80px;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.schema-panel.expanded {
+.payload-panel.expanded {
     max-height: 600px;
 }
 
-.schema-panel .schema-content {
+.payload-panel .payload-content {
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.schema-panel.expanded .schema-content {
+.payload-panel.expanded .payload-content {
     opacity: 1;
     transform: translateY(0);
 }
 
-.schema-panel .schema-preview {
+.payload-panel .payload-preview {
     opacity: 1;
     transition: opacity 0.2s ease;
 }
 
-.schema-panel.expanded .schema-preview {
+.payload-panel.expanded .payload-preview {
     opacity: 0;
     height: 0;
     padding: 0;
@@ -52,12 +52,12 @@
     transition: transform 0.3s ease;
 }
 
-.schema-panel.expanded .toggle-icon {
+.payload-panel.expanded .toggle-icon {
     transform: rotate(180deg);
 }
 
 /* Textarea styling */
-.schema-textarea {
+.payload-textarea {
     font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
     font-size: 0.8rem;
     line-height: 1.5;
@@ -65,12 +65,12 @@
     min-height: 300px;
 }
 
-.schema-textarea:focus {
+.payload-textarea:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
-.schema-textarea.error {
+.payload-textarea.error {
     border-color: var(--danger);
     background-color: #fef2f2;
 }
@@ -236,7 +236,7 @@ select {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .schema-textarea {
+    .payload-textarea {
         min-height: 200px;
     }
 
@@ -257,21 +257,21 @@ select {
 }
 
 /* Custom scrollbar for textareas */
-.schema-textarea::-webkit-scrollbar {
+.payload-textarea::-webkit-scrollbar {
     width: 8px;
 }
 
-.schema-textarea::-webkit-scrollbar-track {
+.payload-textarea::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
 }
 
-.schema-textarea::-webkit-scrollbar-thumb {
+.payload-textarea::-webkit-scrollbar-thumb {
     background: #c1c1c1;
     border-radius: 4px;
 }
 
-.schema-textarea::-webkit-scrollbar-thumb:hover {
+.payload-textarea::-webkit-scrollbar-thumb:hover {
     background: #a1a1a1;
 }
 
