@@ -9,7 +9,7 @@ import {
     DEFAULT_OPTIMIZED_CONSENT_PAYLOAD
 } from './constants.js';
 import { formatNumber, formatBytes, formatPercent, formatDays, formatDate, formatCompactNumber } from './formatters.js';
-import { generateProfilePayload, generateConsentPayload } from './payloadGenerator.js';
+import { generateProfilePayload, generateConsentPayload, generateOptimizedProfilePayload, generateOptimizedConsentPayload } from './payloadGenerator.js';
 
 class App {
     constructor() {
@@ -335,6 +335,18 @@ class App {
         const consentJson = JSON.stringify(consentPayload, null, 2);
         this.elements.consentPayload.value = consentJson;
         storage.save(STORAGE_KEYS.consentJson, consentJson);
+
+        // Generate optimized profile payload (minified - no spaces/newlines)
+        const optimizedProfilePayload = generateOptimizedProfilePayload(wirelessCount, wirelineCount);
+        const optimizedProfileJson = JSON.stringify(optimizedProfilePayload);
+        this.elements.optimizedProfilePayload.value = optimizedProfileJson;
+        storage.save(STORAGE_KEYS.optimizedProfileJson, optimizedProfileJson);
+
+        // Generate optimized consent payload (minified - no spaces/newlines)
+        const optimizedConsentPayload = generateOptimizedConsentPayload(wirelessCount, wirelineCount);
+        const optimizedConsentJson = JSON.stringify(optimizedConsentPayload);
+        this.elements.optimizedConsentPayload.value = optimizedConsentJson;
+        storage.save(STORAGE_KEYS.optimizedConsentJson, optimizedConsentJson);
 
         // Update UI
         this.updatePreviews();
