@@ -593,8 +593,8 @@ class App {
         this.elements.compressionType.value = 'bzip2';
         this.elements.recordsToHydrate.value = 150;
         this.elements.bandwidthLimit.value = 2;
-        this.elements.profileChangeRate.value = 10;
-        this.elements.profileChangeSlider.value = 10;
+        this.elements.profileChangeRate.value = 20;
+        this.elements.profileChangeSlider.value = 20;
         this.elements.consentChangeRate.value = 5;
         this.elements.consentChangeSlider.value = 5;
         this.elements.growthDate.value = storage.getDefaultGrowthDate();
