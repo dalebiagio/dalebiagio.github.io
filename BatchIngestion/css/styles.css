@@ -301,3 +301,57 @@ select {
     background-color: #fffbeb;
     border-left: 3px solid #f59e0b;
 }
+
+/* Independent scrolling for columns */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Firefox scrollbar */
+.scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+}
+
+/* Schema display styling */
+.schema-display {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.schema-display::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.schema-display::-webkit-scrollbar-track {
+    background: #e5e7eb;
+    border-radius: 3px;
+}
+
+.schema-display::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 3px;
+}
+
+/* Schemas section toggle animation */
+#schemasToggleIcon {
+    transition: transform 0.3s ease;
+}
+
+#schemasToggleIcon.rotated {
+    transform: rotate(180deg);
+}

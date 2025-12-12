@@ -9,6 +9,7 @@ import {
     DEFAULT_OPTIMIZED_CONSENT_PAYLOAD
 } from './constants.js';
 import { formatNumber, formatBytes, formatPercent, formatDays, formatDate, formatCompactNumber } from './formatters.js';
+import { generateProfilePayload, generateConsentPayload } from './payloadGenerator.js';
 
 class App {
     constructor() {
@@ -21,12 +22,31 @@ class App {
         this.loadSettings();
         this.setupEventListeners();
         this.updatePreviews();
+        this.loadSchemas();
         chartManager.init('usageChart');
         this.calculate();
 
         // Show warning if localStorage unavailable
         if (!storage.available) {
             this.elements.warningBanner.classList.remove('hidden');
+        }
+    }
+
+    async loadSchemas() {
+        try {
+            // Load profile schema
+            const profileResponse = await fetch('input/schema/profile.json');
+            const profileSchema = await profileResponse.json();
+            this.elements.profileSchemaDisplay.textContent = JSON.stringify(profileSchema, null, 2);
+
+            // Load consent schema
+            const consentResponse = await fetch('input/schema/consent.json');
+            const consentSchema = await consentResponse.json();
+            this.elements.consentSchemaDisplay.textContent = JSON.stringify(consentSchema, null, 2);
+        } catch (error) {
+            console.error('Failed to load schemas:', error);
+            this.elements.profileSchemaDisplay.textContent = 'Failed to load schema';
+            this.elements.consentSchemaDisplay.textContent = 'Failed to load schema';
         }
     }
 
@@ -112,7 +132,19 @@ class App {
 
             // UI
             warningBanner: document.getElementById('warningBanner'),
-            saveIndicator: document.getElementById('saveIndicator')
+            saveIndicator: document.getElementById('saveIndicator'),
+
+            // Schemas
+            schemasToggle: document.getElementById('schemasToggle'),
+            schemasToggleIcon: document.getElementById('schemasToggleIcon'),
+            schemasContent: document.getElementById('schemasContent'),
+            profileSchemaDisplay: document.getElementById('profileSchemaDisplay'),
+            consentSchemaDisplay: document.getElementById('consentSchemaDisplay'),
+
+            // Payload Generator
+            wirelessCount: document.getElementById('wirelessCount'),
+            wirelineCount: document.getElementById('wirelineCount'),
+            generatePayloadsBtn: document.getElementById('generatePayloadsBtn')
         };
     }
 
@@ -267,6 +299,47 @@ class App {
 
         // Reset button
         document.getElementById('resetBtn').addEventListener('click', () => this.resetToDefaults());
+
+        // Schemas toggle
+        this.elements.schemasToggle.addEventListener('click', () => this.toggleSchemas());
+
+        // Generate payloads button
+        this.elements.generatePayloadsBtn.addEventListener('click', () => this.generatePayloads());
+    }
+
+    toggleSchemas() {
+        const content = this.elements.schemasContent;
+        const icon = this.elements.schemasToggleIcon;
+
+        if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            icon.classList.add('rotated');
+        } else {
+            content.classList.add('hidden');
+            icon.classList.remove('rotated');
+        }
+    }
+
+    generatePayloads() {
+        const wirelessCount = parseInt(this.elements.wirelessCount.value) || 0;
+        const wirelineCount = parseInt(this.elements.wirelineCount.value) || 0;
+
+        // Generate profile payload
+        const profilePayload = generateProfilePayload(wirelessCount, wirelineCount);
+        const profileJson = JSON.stringify(profilePayload, null, 2);
+        this.elements.profilePayload.value = profileJson;
+        storage.save(STORAGE_KEYS.profileJson, profileJson);
+
+        // Generate consent payload
+        const consentPayload = generateConsentPayload(wirelessCount, wirelineCount);
+        const consentJson = JSON.stringify(consentPayload, null, 2);
+        this.elements.consentPayload.value = consentJson;
+        storage.save(STORAGE_KEYS.consentJson, consentJson);
+
+        // Update UI
+        this.updatePreviews();
+        this.calculate();
+        this.showSaveIndicator();
     }
 
     togglePayload(type) {
