@@ -3,6 +3,7 @@ export const DEFAULT_PROFILE_PAYLOAD = {
   "neustarOffline": "NOFFE20C7D60430B4F4D",
   "neustarOnline": "NON8D2F5EE0E4524FCC",
   "knownUUID": "3fb4a65f-7ce8-4cc1-8a72-54145be8cf42",
+  "preferredLanguage": "EN",
   "wireless": [
     {
       "ctn": "9542049935",
@@ -24,20 +25,6 @@ export const DEFAULT_PROFILE_PAYLOAD = {
         "endDate": "2026-05-26",
         "reasonCode": "NEW",
         "status": "Active"
-      },
-      "contactDetails": {
-        "mktPhoneNumber": "9145326574",
-        "mktEmail": "mary.smith36@gmail.com",
-        "mktPostalAddress": {
-          "addressLine1": "3627 Main St",
-          "addressLine2": "Apt 491",
-          "addressLine3": "",
-          "city": "Philadelphia",
-          "state": "AZ",
-          "country": "US",
-          "zipcode": "42098",
-          "zipcode4": "4657"
-        }
       },
       "banDetails": {
         "ban": "209747451",
@@ -83,20 +70,6 @@ export const DEFAULT_PROFILE_PAYLOAD = {
         "reasonCode": "UPGRADE",
         "status": "Pending"
       },
-      "contactDetails": {
-        "mktPhoneNumber": "8997632169",
-        "mktEmail": "mary.smith78@outlook.com",
-        "mktPostalAddress": {
-          "addressLine1": "2903 Main St",
-          "addressLine2": "",
-          "addressLine3": "",
-          "city": "Philadelphia",
-          "state": "AZ",
-          "country": "US",
-          "zipcode": "42098",
-          "zipcode4": "4657"
-        }
-      },
       "banDetails": {
         "ban": "275452091",
         "accountStatus": "Suspended",
@@ -141,20 +114,6 @@ export const DEFAULT_PROFILE_PAYLOAD = {
         "reasonCode": "UPGRADE",
         "status": "Active"
       },
-      "contactDetails": {
-        "mktPhoneNumber": "3416219085",
-        "mktEmail": "mary.smith12@gmail.com",
-        "mktPostalAddress": {
-          "addressLine1": "1896 Main St",
-          "addressLine2": "",
-          "addressLine3": "",
-          "city": "Philadelphia",
-          "state": "AZ",
-          "country": "US",
-          "zipcode": "42098",
-          "zipcode4": "4657"
-        }
-      },
       "banDetails": {
         "ban": "950488739",
         "accountStatus": "Suspended",
@@ -187,24 +146,22 @@ export const DEFAULT_PROFILE_PAYLOAD = {
       "accountStatus": "Active",
       "givenName": "Mary",
       "familyName": "Smith",
-      "addressId": "ADDR415143362",
-      "addressType": "Business",
-      "addressLine1": "2691 Pine Rd",
-      "city": "Philadelphia",
-      "country": "US",
+      "serviceAddressId": "ADDR415143362",
+      "serviceAddressType": "Business",
+      "serviceAddressLine1": "2691 Pine Rd",
+      "serviceAddressCity": "Philadelphia",
+      "serviceAddresscountry": "US",
       "billingAddressLine1": "7533 Billing St",
       "billingZip": "42098",
       "billingZip4": "4657",
       "billingState": "AZ",
       "billingCountry": "US",
-      "emailAddress": "mary1@gmail.com",
-      "phoneNumber": "9399965315",
       "productTypes": "Triple Play",
-      "billingLanguage": "EN",
       "liabilityType": "Individual",
+      "emailAddress": "mary1@gmail.com",
       "convergedCustomerOption": "N",
-      "uversedtvAccountType": "U450",
-      "uversedtvAccountSubType": "Standard",
+      "uverseAccountType": "U450",
+      "uverseAccountSubType": "Standard",
       "autoPay": "Y",
       "contract": {
         "startDate": "2022-03-18",
@@ -230,24 +187,22 @@ export const DEFAULT_PROFILE_PAYLOAD = {
       "accountStatus": "Active",
       "givenName": "Mary",
       "familyName": "Smith",
-      "addressId": "ADDR916690353",
-      "addressType": "Residential",
-      "addressLine1": "2203 Pine Rd",
-      "city": "Philadelphia",
-      "country": "US",
+      "serviceAddressId": "ADDR916690353",
+      "serviceAddressType": "Residential",
+      "serviceAddressLine1": "2203 Pine Rd",
+      "serviceAddressCity": "Philadelphia",
+      "serviceAddresscountry": "US",
       "billingAddressLine1": "7887 Billing St",
       "billingZip": "42098",
       "billingZip4": "4657",
       "billingState": "AZ",
       "billingCountry": "US",
-      "emailAddress": "mary71@gmail.com",
-      "phoneNumber": "3693719645",
       "productTypes": "Triple Play",
-      "billingLanguage": "ES",
       "liabilityType": "Individual",
+      "emailAddress": "mary71@gmail.com",
       "convergedCustomerOption": "Y",
-      "uversedtvAccountType": "U450",
-      "uversedtvAccountSubType": "Premium",
+      "uverseAccountType": "U450",
+      "uverseAccountSubType": "Premium",
       "autoPay": "N",
       "contract": {
         "startDate": "2023-11-12",
@@ -273,24 +228,22 @@ export const DEFAULT_PROFILE_PAYLOAD = {
       "accountStatus": "Active",
       "givenName": "Mary",
       "familyName": "Smith",
-      "addressId": "ADDR172370545",
-      "addressType": "Residential",
-      "addressLine1": "5513 Pine Rd",
-      "city": "Philadelphia",
-      "country": "US",
+      "serviceAddressId": "ADDR172370545",
+      "serviceAddressType": "Residential",
+      "serviceAddressLine1": "5513 Pine Rd",
+      "serviceAddressCity": "Philadelphia",
+      "serviceAddresscountry": "US",
       "billingAddressLine1": "1260 Billing St",
       "billingZip": "42098",
       "billingZip4": "4657",
       "billingState": "AZ",
       "billingCountry": "US",
-      "emailAddress": "mary66@gmail.com",
-      "phoneNumber": "4433858953",
       "productTypes": "Internet",
-      "billingLanguage": "EN",
       "liabilityType": "Corporate",
+      "emailAddress": "mary66@gmail.com",
       "convergedCustomerOption": "Y",
-      "uversedtvAccountType": "U300",
-      "uversedtvAccountSubType": "Premium",
+      "uverseAccountType": "U300",
+      "uverseAccountSubType": "Premium",
       "autoPay": "Y",
       "contract": {
         "startDate": "2021-02-22",
@@ -313,26 +266,46 @@ export const DEFAULT_PROFILE_PAYLOAD = {
 };
 
 export const DEFAULT_CONSENT_PAYLOAD = {
+    "neustarOffline": "NOFFE20C7D60430B4F4D",
+    "neustarOnline": "NON8D2F5EE0E4524FCC",
     "knownUUID": "550e8400-e29b-41d4-a716-446655440000",
-    "consentTimestamp": "2024-01-15T10:30:00Z",
-    "consentVersion": "2.1",
-    "consentSource": "Web Portal",
-    "channels": {
-        "email": { "opted": true, "timestamp": "2024-01-15T10:30:00Z", "source": "Web" },
-        "sms": { "opted": false, "timestamp": "2024-01-10T08:00:00Z", "source": "IVR" },
-        "push": { "opted": true, "timestamp": "2024-01-15T10:30:00Z", "source": "App" },
-        "directMail": { "opted": true, "timestamp": "2023-06-01T00:00:00Z", "source": "Store" }
+    "contactDetails": {
+        "mktPhoneNumber": "9145326574",
+        "mktEmail": "mary.smith36@gmail.com",
+        "mktPostalAddress": {
+            "addressLine1": "3627 Main St",
+            "addressLine2": "Apt 491",
+            "addressLine3": "",
+            "city": "Philadelphia",
+            "state": "AZ",
+            "country": "US",
+            "zipcode": "42098",
+            "zipcode4": "4657"
+        }
     },
-    "purposes": {
-        "marketing": { "opted": true, "timestamp": "2024-01-15T10:30:00Z" },
-        "analytics": { "opted": true, "timestamp": "2024-01-15T10:30:00Z" },
-        "thirdPartySharing": { "opted": false, "timestamp": "2024-01-15T10:30:00Z" },
-        "personalization": { "opted": true, "timestamp": "2024-01-15T10:30:00Z" }
+    "mktPhoneConsent": {
+        "bp_sms_legal_wrls_ind": "Y",
+        "bp_sms_legal_bb_ind": "N",
+        "bp_sms_mktg_wrls_ind": "Y",
+        "bp_sms_mktg_bb_ind": "N",
+        "sms_mktg_consent": "Y",
+        "sms_mktg_consent_dt": "2024-01-15",
+        "bp_sms_mktg_ind": "Y",
+        "bp_sms_nfn_wrls_ind": "Y",
+        "bp_sms_nfn_bb_ind": "N",
+        "cease_desist_ind": "N"
     },
-    "doNotSell": false,
-    "doNotShare": false,
-    "privacyPolicyVersion": "3.2",
-    "privacyPolicyAcceptedAt": "2024-01-15T10:30:00Z"
+    "mktEmailConsent": {
+        "bp_eml_mktg_ind": "Y",
+        "bp_eml_nfn_ind": "Y",
+        "bp_eml_mktg_bb_intrnt_ind": "N",
+        "bp_eml_mktg_wrls_ind": "Y",
+        "cease_desist_ind": "N"
+    },
+    "mktPostalConsent": {
+        "restricted_ind": "N",
+        "cease_desist_ind": "N"
+    }
 };
 
 // Optimized payloads with shorthand attribute names

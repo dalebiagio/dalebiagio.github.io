@@ -334,66 +334,6 @@ function generateWirelineProfile() {
     };
 }
 
-// Generate wireless consent entry
-function generateWirelessConsent() {
-    return {
-        ctn: generators.ctn(),
-        smsconsentdetails: {
-            bp_sms_legal_wrls_ind: generators.booleanIndicator(),
-            bp_sms_legal_bb_ind: generators.booleanIndicator(),
-            bp_sms_mktg_wrls_ind: generators.booleanIndicator(),
-            bp_sms_mktg_bb_ind: generators.booleanIndicator(),
-            sms_mktg_consent: generators.booleanIndicator(),
-            sms_mktg_consent_dt: generators.date(2023, 2025),
-            bp_sms_mktg_ind: generators.booleanIndicator(),
-            bp_sms_nfn_wrls_ind: generators.booleanIndicator(),
-            bp_sms_nfn_bb_ind: generators.booleanIndicator()
-        },
-        emailconsentdetails: {
-            bp_eml_mktg_ind: generators.booleanIndicator(),
-            bp_eml_nfn_ind: generators.booleanIndicator(),
-            bp_eml_mktg_bb_intrnt_ind: generators.booleanIndicator(),
-            bp_eml_mktg_wrls_ind: generators.booleanIndicator()
-        },
-        banconsentdetails: {
-            ban: generators.ban(),
-            pushnotificaitons: {
-                bp_pn_wrls_nfn_ind: generators.booleanIndicator(),
-                bp_pn_wrls_mktg_ind: generators.booleanIndicator(),
-                bp_pn_wrls_mktg_upgrd_ind: generators.booleanIndicator(),
-                bp_pn_wrls_network_nfn_ind: generators.booleanIndicator(),
-                bp_pn_bb_nfn_ind: generators.booleanIndicator(),
-                bp_pn_bb_mktg_ind: generators.booleanIndicator(),
-                bp_pn_bb_network_nfn_ind: generators.booleanIndicator(),
-                bp_pn_bb_mktg_upgrd_ind: generators.booleanIndicator()
-            },
-            cpniindicator: generators.boolean(),
-            privacyconsent: {
-                do_not_sell_ind: generators.booleanIndicator(),
-                restricted_ind: generators.booleanIndicator(),
-                cease_desist_ind: generators.booleanIndicator()
-            }
-        }
-    };
-}
-
-// Generate wireline consent entry
-function generateWirelineConsent() {
-    return {
-        ban: generators.ban(),
-        pushnotificaitons: {
-            bp_pn_wrls_nfn_ind: generators.booleanIndicator(),
-            bp_pn_wrls_mktg_ind: generators.booleanIndicator(),
-            bp_pn_wrls_mktg_upgrd_ind: generators.booleanIndicator(),
-            bp_pn_wrls_network_nfn_ind: generators.booleanIndicator(),
-            bp_pn_bb_nfn_ind: generators.booleanIndicator(),
-            bp_pn_bb_mktg_ind: generators.booleanIndicator(),
-            bp_pn_bb_network_nfn_ind: generators.booleanIndicator(),
-            bp_pn_bb_mktg_upgrd_ind: generators.booleanIndicator()
-        }
-    };
-}
-
 // Main generator function for Profile payload
 export function generateProfilePayload(wirelessCount, wirelineCount) {
     const payload = {
@@ -597,67 +537,6 @@ function generateOptimizedWirelineProfile() {
             is: generators.choice(['PRTPLUS', 'PRTBASIC', 'PRTPREM']),
             ps: generators.choice(['FIBER1000', 'FIBER500', 'DSL50']),
             ed: generators.date(2023, 2025)
-        }
-    };
-}
-
-// Generate optimized wireless consent entry
-function generateOptimizedWirelessConsent() {
-    // Use single-char or very short keys
-    return {
-        c: generators.ctn(),
-        sms: {
-            slw: generators.booleanIndicator(),
-            slb: generators.booleanIndicator(),
-            smw: generators.booleanIndicator(),
-            smb: generators.booleanIndicator(),
-            smc: generators.booleanIndicator(),
-            smd: generators.date(2023, 2025),
-            smi: generators.booleanIndicator(),
-            snw: generators.booleanIndicator(),
-            snb: generators.booleanIndicator()
-        },
-        eml: {
-            emi: generators.booleanIndicator(),
-            eni: generators.booleanIndicator(),
-            ebi: generators.booleanIndicator(),
-            ewi: generators.booleanIndicator()
-        },
-        bnc: {
-            bn: generators.ban(),
-            pn: {
-                pwn: generators.booleanIndicator(),
-                pwm: generators.booleanIndicator(),
-                pwu: generators.booleanIndicator(),
-                pwk: generators.booleanIndicator(),
-                pbn: generators.booleanIndicator(),
-                pbm: generators.booleanIndicator(),
-                pbk: generators.booleanIndicator(),
-                pbu: generators.booleanIndicator()
-            },
-            cpni: generators.boolean(),
-            prv: {
-                dns: generators.booleanIndicator(),
-                rst: generators.booleanIndicator(),
-                cd: generators.booleanIndicator()
-            }
-        }
-    };
-}
-
-// Generate optimized wireline consent entry
-function generateOptimizedWirelineConsent() {
-    return {
-        bn: generators.ban(),
-        pn: {
-            pwn: generators.booleanIndicator(),
-            pwm: generators.booleanIndicator(),
-            pwu: generators.booleanIndicator(),
-            pwk: generators.booleanIndicator(),
-            pbn: generators.booleanIndicator(),
-            pbm: generators.booleanIndicator(),
-            pbk: generators.booleanIndicator(),
-            pbu: generators.booleanIndicator()
         }
     };
 }
