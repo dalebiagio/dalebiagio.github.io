@@ -310,19 +310,23 @@ export const DEFAULT_CONSENT_PAYLOAD = {
 
 // Optimized payloads with shorthand attribute names
 // Key mappings:
-// Profile: nOff=neustarOffline, nOn=neustarOnline, uid=knownUUID, wl=wireless, wn=wireline
+// Profile: nOff=neustarOffline, nOn=neustarOnline, uid=knownUUID, pl=preferredLanguage, wl=wireless, wn=wireline
 // c=ctn, ad=activationDate, ss=subscriberStatus, fni=firstnetIndicator, dv=device, mk=make, id=itemId, md=model
 // sc=soc, is=insuranceSoc, ps=planSoc, ed=planSocEffectiveDate, ct=contract, sd=startDate, rc=reasonCode, st=status
-// cd=contactDetails, ph=mktPhoneNumber, em=mktEmail, pa=mktPostalAddress, a1/a2/a3=addressLine1/2/3, ci=city, co=country, zp=zipcode, z4=zipcode4
 // bd=banDetails, bn=ban, as=accountStatus, at=accountType, wat=wirelessAccountType, wast=wirelessAccountSubType
 // lt=liabilityType, ap=autoPay, aid=addressId, aty=addressType, bs=billingState, bz=billingZip, bz4=billingZip4
 // fn=firstName, ln=lastName, bl=billingLanguage, cco=convergedCustomerOption, cpni=cpniIndicator
-// Wireline: us=maxUploadSpeed, gn=givenName, fmn=familyName, bal1=billingAddressLine1, bco=billingCountry
-// pt=productTypes, uat=uversedtvAccountType, uast=uversedtvAccountSubType
+// Wireline: us=maxUploadSpeed, gn=givenName, fmn=familyName, said=serviceAddressId, saty=serviceAddressType
+// sal1=serviceAddressLine1, saci=serviceAddressCity, saco=serviceAddresscountry, bal1=billingAddressLine1, bco=billingCountry
+// pt=productTypes, uat=uverseAccountType, uast=uverseAccountSubType, em=emailAddress
+// Consent: nOff=neustarOffline, nOn=neustarOnline, uid=knownUUID
+// cd=contactDetails, ph=mktPhoneNumber, em=mktEmail, pa=mktPostalAddress, a1/a2/a3=addressLine1/2/3, ci=city, s=state, co=country, zp=zipcode, z4=zipcode4
+// mpc=mktPhoneConsent, mec=mktEmailConsent, mpoc=mktPostalConsent
 export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
   "nOff": "NOFFE20C7D60430B4F4D",
   "nOn": "NON8D2F5EE0E4524FCC",
   "uid": "3fb4a65f-7ce8-4cc1-8a72-54145be8cf42",
+  "pl": "EN",
   "wl": [
     {
       "c": "9542049935",
@@ -332,11 +336,6 @@ export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
       "dv": { "mk": "Samsung", "id": "ITM22575562", "md": "Galaxy S24" },
       "sc": { "is": "PRTPLUS", "ps": "UNLPREM5G", "ed": "2025-04-23" },
       "ct": { "sd": "2023-04-15", "ed": "2026-05-26", "rc": "N", "st": "A" },
-      "cd": {
-        "ph": "9145326574",
-        "em": "mary.smith36@gmail.com",
-        "pa": { "a1": "3627 Main St", "a2": "Apt 491", "a3": "", "ci": "Philadelphia", "s": "AZ", "co": "US", "zp": "42098", "z4": "4657" }
-      },
       "bd": {
         "bn": "209747451", "as": "A", "at": "F", "wat": "Po", "wast": "Pr", "lt": "C", "ap": false,
         "aid": "ADDR966647391", "aty": "R", "a1": "7627 Oak Ave", "ci": "Philadelphia",
@@ -352,11 +351,6 @@ export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
       "dv": { "mk": "Google", "id": "ITM48840994", "md": "Pixel 8 Pro" },
       "sc": { "is": "PRTPLUS", "ps": "UNLPREM5G", "ed": "2024-05-15" },
       "ct": { "sd": "2022-03-12", "ed": "2025-04-22", "rc": "U", "st": "P" },
-      "cd": {
-        "ph": "8997632169",
-        "em": "mary.smith78@outlook.com",
-        "pa": { "a1": "2903 Main St", "a2": "", "a3": "", "ci": "Philadelphia", "s": "AZ", "co": "US", "zp": "42098", "z4": "4657" }
-      },
       "bd": {
         "bn": "275452091", "as": "S", "at": "F", "wat": "Pr", "wast": "St", "lt": "C", "ap": true,
         "aid": "ADDR345938494", "aty": "R", "a1": "5268 Oak Ave", "ci": "Philadelphia",
@@ -372,11 +366,6 @@ export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
       "dv": { "mk": "Samsung", "id": "ITM29175900", "md": "Galaxy S23" },
       "sc": { "is": "PRTPLUS", "ps": "UNLPLUS5G", "ed": "2025-09-18" },
       "ct": { "sd": "2022-12-19", "ed": "2025-10-13", "rc": "U", "st": "A" },
-      "cd": {
-        "ph": "3416219085",
-        "em": "mary.smith12@gmail.com",
-        "pa": { "a1": "1896 Main St", "a2": "", "a3": "", "ci": "Philadelphia", "s": "AZ", "co": "US", "zp": "42098", "z4": "4657" }
-      },
       "bd": {
         "bn": "950488739", "as": "S", "at": "B", "wat": "Po", "wast": "Pr", "lt": "C", "ap": false,
         "aid": "ADDR668132202", "aty": "B", "a1": "9164 Oak Ave", "ci": "Philadelphia",
@@ -388,9 +377,9 @@ export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
   "wn": [
     {
       "bn": "925276600", "us": "1Gbps", "at": "F", "as": "A", "gn": "Mary", "fmn": "Smith",
-      "aid": "ADDR415143362", "aty": "B", "a1": "2691 Pine Rd", "ci": "Philadelphia", "co": "US",
+      "said": "ADDR415143362", "saty": "B", "sal1": "2691 Pine Rd", "saci": "Philadelphia", "saco": "US",
       "bal1": "7533 Billing St", "bz": "42098", "bz4": "4657", "bs": "AZ", "bco": "US",
-      "em": "mary1@gmail.com", "ph": "9399965315", "pt": "TP", "bl": "EN", "lt": "I", "cco": "N",
+      "pt": "TP", "lt": "I", "em": "mary1@gmail.com", "cco": "N",
       "uat": "U450", "uast": "St", "ap": "Y",
       "ct": { "sd": "2022-03-18", "ed": "2026-01-20", "rc": "U", "st": "E" },
       "dv": { "mk": "Arris", "id": "ITM25014631", "md": "BGW210" },
@@ -398,9 +387,9 @@ export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
     },
     {
       "bn": "184564737", "us": "100Mbps", "at": "F", "as": "A", "gn": "Mary", "fmn": "Smith",
-      "aid": "ADDR916690353", "aty": "R", "a1": "2203 Pine Rd", "ci": "Philadelphia", "co": "US",
+      "said": "ADDR916690353", "saty": "R", "sal1": "2203 Pine Rd", "saci": "Philadelphia", "saco": "US",
       "bal1": "7887 Billing St", "bz": "42098", "bz4": "4657", "bs": "AZ", "bco": "US",
-      "em": "mary71@gmail.com", "ph": "3693719645", "pt": "TP", "bl": "ES", "lt": "I", "cco": "Y",
+      "pt": "TP", "lt": "I", "em": "mary71@gmail.com", "cco": "Y",
       "uat": "U450", "uast": "Pr", "ap": "N",
       "ct": { "sd": "2023-11-12", "ed": "2025-09-15", "rc": "N", "st": "A" },
       "dv": { "mk": "Arris", "id": "ITM18593410", "md": "BGW210" },
@@ -408,9 +397,9 @@ export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
     },
     {
       "bn": "176228245", "us": "1Gbps", "at": "I", "as": "A", "gn": "Mary", "fmn": "Smith",
-      "aid": "ADDR172370545", "aty": "R", "a1": "5513 Pine Rd", "ci": "Philadelphia", "co": "US",
+      "said": "ADDR172370545", "saty": "R", "sal1": "5513 Pine Rd", "saci": "Philadelphia", "saco": "US",
       "bal1": "1260 Billing St", "bz": "42098", "bz4": "4657", "bs": "AZ", "bco": "US",
-      "em": "mary66@gmail.com", "ph": "4433858953", "pt": "I", "bl": "EN", "lt": "C", "cco": "Y",
+      "pt": "I", "lt": "C", "em": "mary66@gmail.com", "cco": "Y",
       "uat": "U300", "uast": "Pr", "ap": "Y",
       "ct": { "sd": "2021-02-22", "ed": "2025-06-14", "rc": "U", "st": "E" },
       "dv": { "mk": "Arris", "id": "ITM97705310", "md": "BGW320" },
@@ -420,26 +409,25 @@ export const DEFAULT_OPTIMIZED_PROFILE_PAYLOAD = {
 };
 
 export const DEFAULT_OPTIMIZED_CONSENT_PAYLOAD = {
+    "nOff": "NOFFE20C7D60430B4F4D",
+    "nOn": "NON8D2F5EE0E4524FCC",
     "uid": "550e8400-e29b-41d4-a716-446655440000",
-    "ts": "2024-01-15T10:30:00Z",
-    "v": "2.1",
-    "src": "WP",
-    "ch": {
-        "em": { "o": true, "t": "2024-01-15T10:30:00Z", "s": "W" },
-        "sm": { "o": false, "t": "2024-01-10T08:00:00Z", "s": "I" },
-        "pu": { "o": true, "t": "2024-01-15T10:30:00Z", "s": "A" },
-        "dm": { "o": true, "t": "2023-06-01T00:00:00Z", "s": "S" }
+    "cd": {
+        "ph": "9145326574",
+        "em": "mary.smith36@gmail.com",
+        "pa": { "a1": "3627 Main St", "a2": "Apt 491", "a3": "", "ci": "Philadelphia", "s": "AZ", "co": "US", "zp": "42098", "z4": "4657" }
     },
-    "pp": {
-        "mk": { "o": true, "t": "2024-01-15T10:30:00Z" },
-        "an": { "o": true, "t": "2024-01-15T10:30:00Z" },
-        "tp": { "o": false, "t": "2024-01-15T10:30:00Z" },
-        "ps": { "o": true, "t": "2024-01-15T10:30:00Z" }
+    "mpc": {
+        "slw": "Y", "slb": "N", "smw": "Y", "smb": "N",
+        "smc": "Y", "smd": "2024-01-15", "smi": "Y",
+        "snw": "Y", "snb": "N", "cd": "N"
     },
-    "dns": false,
-    "dnsh": false,
-    "ppv": "3.2",
-    "ppa": "2024-01-15T10:30:00Z"
+    "mec": {
+        "emi": "Y", "eni": "Y", "ebi": "N", "ewi": "Y", "cd": "N"
+    },
+    "mpoc": {
+        "ri": "N", "cd": "N"
+    }
 };
 
 // Compression ratios

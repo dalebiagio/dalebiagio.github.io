@@ -1,0 +1,185 @@
+[
+  {
+    "neustarOffline": "offline ekey1",
+    "neustarOnline": "online ekey1",
+    "knownUUID": "UUID123",
+    "preferredLanguage": "EN",
+    "wireless": [
+      {
+        "ctn": "LINE1",
+        "activationDate": "2024-01-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Samsung",
+          "itemId": "ITM001",
+          "model": "Galaxy S24"
+        },
+        "soc": {
+          "insuranceSoc": "PRTPLUS",
+          "planSoc": "UNLPREM5G",
+          "planSocEffectiveDate": "2024-01-01"
+        },
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN1",
+          "accountStatus": "Active",
+          "accountType": "Individual",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Standard",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR001",
+          "addressType": "Residential",
+          "addressLine1": "123 Main St",
+          "city": "Philadelphia",
+          "billingState": "PA",
+          "billingZip": "19101",
+          "billingZip4": "1234",
+          "country": "US",
+          "firstName": "John",
+          "lastName": "Doe",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "Y",
+          "cpniIndicator": false
+        }
+      },
+      {
+        "ctn": "LINE2",
+        "activationDate": "2024-01-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Apple",
+          "itemId": "ITM002",
+          "model": "iPhone 15"
+        },
+        "soc": {
+          "insuranceSoc": "PRTPLUS",
+          "planSoc": "UNLPREM5G",
+          "planSocEffectiveDate": "2024-01-01"
+        },
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN1",
+          "accountStatus": "Active",
+          "accountType": "Individual",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Standard",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR001",
+          "addressType": "Residential",
+          "addressLine1": "123 Main St",
+          "city": "Philadelphia",
+          "billingState": "PA",
+          "billingZip": "19101",
+          "billingZip4": "1234",
+          "country": "US",
+          "firstName": "John",
+          "lastName": "Doe",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "Y",
+          "cpniIndicator": false
+        }
+      },
+      {
+        "ctn": "LINE3",
+        "activationDate": "2024-01-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Google",
+          "itemId": "ITM003",
+          "model": "Pixel 8"
+        },
+        "soc": {
+          "insuranceSoc": "PRTBASIC",
+          "planSoc": "UNLPLUS5G",
+          "planSocEffectiveDate": "2024-01-01"
+        },
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN1",
+          "accountStatus": "Active",
+          "accountType": "Individual",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Standard",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR001",
+          "addressType": "Residential",
+          "addressLine1": "123 Main St",
+          "city": "Philadelphia",
+          "billingState": "PA",
+          "billingZip": "19101",
+          "billingZip4": "1234",
+          "country": "US",
+          "firstName": "John",
+          "lastName": "Doe",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "Y",
+          "cpniIndicator": false
+        }
+      }
+    ],
+    "wireline": [
+      {
+        "ban": "BAN2",
+        "maxUploadSpeed": "1Gbps",
+        "accountType": "Individual",
+        "accountStatus": "Active",
+        "givenName": "John",
+        "familyName": "Doe",
+        "serviceAddressId": "SADDR003",
+        "serviceAddressType": "Residential",
+        "serviceAddressLine1": "123 Main St",
+        "serviceAddressCity": "Philadelphia",
+        "serviceAddresscountry": "US",
+        "billingAddressLine1": "123 Main St",
+        "billingZip": "19101",
+        "billingZip4": "1234",
+        "billingState": "PA",
+        "billingCountry": "US",
+        "productTypes": "Internet",
+        "liabilityType": "Individual",
+        "emailAddress": "john.doe@email.com",
+        "convergedCustomerOption": "Y",
+        "uverseAccountType": "U300",
+        "uverseAccountSubType": "Standard",
+        "autoPay": "Y",
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "device": {
+          "make": "Arris",
+          "itemId": "DEV003",
+          "model": "BGW320"
+        },
+        "soc": {
+          "insuranceSoc": "PRTBASIC",
+          "planSoc": "FIBER1000",
+          "planSocEffectiveDate": "2024-01-01"
+        }
+      }
+    ]
+  }
+]
