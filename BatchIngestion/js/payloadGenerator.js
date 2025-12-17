@@ -6,6 +6,103 @@ const PROFILE_SCHEMA = {
     "neustarOffline": "String",
     "neustarOnline": "String",
     "knownUUID": "String",
+    "preferredLanguage": "string",
+    "wireless": [
+        {
+            "ctn": "string",
+            "activationDate": "string",
+            "subscriberStatus": "string",
+            "firstnetIndicator": "boolean",
+            "device": {
+                "make": "string",
+                "itemId": "string",
+                "model": "string"
+            },
+            "soc": {
+                "insuranceSoc": "string",
+                "planSoc": "string",
+                "planSocEffectiveDate": "date"
+            },
+            "contract": {
+                "startDate": "string",
+                "endDate": "string",
+                "reasonCode": "string",
+                "status": "string"
+            },
+            "banDetails": {
+                "ban": "string",
+                "accountStatus": "string",
+                "accountType": "string",
+                "wirelessAccountType": "string",
+                "wirelessAccountSubType": "string",
+                "liabilityType": "string",
+                "autoPay": "boolean",
+                "addressId": "string",
+                "addressType": "string",
+                "addressLine1": "string",
+                "city": "string",
+                "billingState": "string",
+                "billingZip": "string",
+                "billingZip4": "string",
+                "country": "string",
+                "firstName": "string",
+                "lastName": "string",
+                "billingLanguage": "string",
+                "convergedCustomerOption": "string",
+                "cpniIndicator": "boolean"
+            }
+        }
+    ],
+    "wireline": [
+        {
+            "ban": "string",
+            "maxUploadSpeed": "string",
+            "accountType": "string",
+            "accountStatus": "string",
+            "givenName": "string",
+            "familyName": "string",
+            "serviceAddressId": "string",
+            "serviceAddressType": "string",
+            "serviceAddressLine1": "string",
+            "serviceAddressCity": "string",
+            "serviceAddresscountry": "string",
+            "billingAddressLine1": "string",
+            "billingZip": "string",
+            "billingZip4": "string",
+            "billingState": "string",
+            "billingCountry": "string",
+            "productTypes": "string",
+            "liabilityType": "string",
+            "emailAddress": "string",
+            "convergedCustomerOption": "string",
+            "uverseAccountType": "string",
+            "uverseAccountSubType": "string",
+            "autoPay": "string",
+            "contract": {
+                "startDate": "date",
+                "endDate": "date",
+                "reasonCode": "string",
+                "status": "string"
+            },
+            "device": {
+                "make": "string",
+                "itemId": "string",
+                "model": "string"
+            },
+            "soc": {
+                "insuranceSoc": "string",
+                "planSoc": "string",
+                "planSocEffectiveDate": "date"
+            }
+        }
+    ]
+};
+
+// Consent Schema structure (from input/schema/consent.json)
+const CONSENT_SCHEMA = {
+    "neustarOffline": "String",
+    "neustarOnline": "String",
+    "knownUUID": "String",
     "contactDetails": {
         "mktPhoneNumber": "string",
         "mktEmail": "string",
@@ -20,18 +117,29 @@ const PROFILE_SCHEMA = {
             "zipcode4": "string"
         }
     },
-    "preferredLanguage": "",
-    "wireless": [],
-    "wireline": []
-};
-
-// Consent Schema structure (from input/schema/consent.json)
-const CONSENT_SCHEMA = {
-    "neustaroffline": "string",
-    "neustaronline": "string",
-    "knownuuid": "string",
-    "wireless": [],
-    "wireline": {}
+    "mktPhoneConsent": {
+        "bp_sms_legal_wrls_ind": "",
+        "bp_sms_legal_bb_ind": "",
+        "bp_sms_mktg_wrls_ind": "",
+        "bp_sms_mktg_bb_ind": "",
+        "sms_mktg_consent": "",
+        "sms_mktg_consent_dt": "",
+        "bp_sms_mktg_ind": "",
+        "bp_sms_nfn_wrls_ind": "",
+        "bp_sms_nfn_bb_ind": "",
+        "cease_desist_ind": ""
+    },
+    "mktEmailConsent": {
+        "bp_eml_mktg_ind": "",
+        "bp_eml_nfn_ind": "",
+        "bp_eml_mktg_bb_intrnt_ind": "",
+        "bp_eml_mktg_wrls_ind": "",
+        "cease_desist_ind": ""
+    },
+    "mktPostalConsent": {
+        "restricted_ind": "",
+        "cease_desist_ind": ""
+    }
 };
 
 // Random data generators
@@ -178,7 +286,7 @@ function generateWirelessProfile() {
 function generateWirelineProfile() {
     const firstName = generators.firstName();
     const lastName = generators.lastName();
-    const city = generators.city();
+    const serviceCity = generators.city();
     const state = generators.state();
     const zip = generators.zipcode();
     const zip4 = generators.zipcode4();
@@ -190,24 +298,22 @@ function generateWirelineProfile() {
         accountStatus: generators.choice(['Active', 'Suspended', 'Closed']),
         givenName: firstName,
         familyName: lastName,
-        addressId: generators.addressId(),
-        addressType: generators.choice(['Residential', 'Business']),
-        addressLine1: generators.street(),
-        city: city,
-        country: 'US',
+        serviceAddressId: generators.addressId(),
+        serviceAddressType: generators.choice(['Residential', 'Business']),
+        serviceAddressLine1: generators.street(),
+        serviceAddressCity: serviceCity,
+        serviceAddresscountry: 'US',
         billingAddressLine1: generators.street(),
         billingZip: zip,
         billingZip4: zip4,
         billingState: state,
         billingCountry: 'US',
-        emailAddress: generators.email(firstName, lastName),
-        phoneNumber: generators.phone(),
         productTypes: generators.choice(['Internet', 'Triple Play', 'TV + Internet', 'Phone + Internet']),
-        billingLanguage: generators.choice(['EN', 'ES']),
         liabilityType: generators.choice(['Individual', 'Corporate']),
+        emailAddress: generators.email(firstName, lastName),
         convergedCustomerOption: generators.choice(['Y', 'N']),
-        uversedtvAccountType: generators.choice(['U200', 'U300', 'U450']),
-        uversedtvAccountSubType: generators.choice(['Standard', 'Premium']),
+        uverseAccountType: generators.choice(['U200', 'U300', 'U450']),
+        uverseAccountSubType: generators.choice(['Standard', 'Premium']),
         autoPay: generators.choice(['Y', 'N']),
         contract: {
             startDate: generators.date(2021, 2024),
@@ -290,6 +396,30 @@ function generateWirelineConsent() {
 
 // Main generator function for Profile payload
 export function generateProfilePayload(wirelessCount, wirelineCount) {
+    const payload = {
+        neustarOffline: generators.neustarOffline(),
+        neustarOnline: generators.neustarOnline(),
+        knownUUID: generators.uuid(),
+        preferredLanguage: generators.choice(['EN', 'ES', '']),
+        wireless: [],
+        wireline: []
+    };
+
+    // Generate wireless entries
+    for (let i = 0; i < wirelessCount; i++) {
+        payload.wireless.push(generateWirelessProfile());
+    }
+
+    // Generate wireline entries
+    for (let i = 0; i < wirelineCount; i++) {
+        payload.wireline.push(generateWirelineProfile());
+    }
+
+    return payload;
+}
+
+// Main generator function for Consent payload
+export function generateConsentPayload(wirelessCount, wirelineCount) {
     const firstName = generators.firstName();
     const lastName = generators.lastName();
     const city = generators.city();
@@ -315,38 +445,30 @@ export function generateProfilePayload(wirelessCount, wirelineCount) {
                 zipcode4: zip4
             }
         },
-        preferredLanguage: generators.choice(['EN', 'ES', '']),
-        wireless: [],
-        wireline: []
+        mktPhoneConsent: {
+            bp_sms_legal_wrls_ind: generators.booleanIndicator(),
+            bp_sms_legal_bb_ind: generators.booleanIndicator(),
+            bp_sms_mktg_wrls_ind: generators.booleanIndicator(),
+            bp_sms_mktg_bb_ind: generators.booleanIndicator(),
+            sms_mktg_consent: generators.booleanIndicator(),
+            sms_mktg_consent_dt: generators.date(2023, 2025),
+            bp_sms_mktg_ind: generators.booleanIndicator(),
+            bp_sms_nfn_wrls_ind: generators.booleanIndicator(),
+            bp_sms_nfn_bb_ind: generators.booleanIndicator(),
+            cease_desist_ind: generators.booleanIndicator()
+        },
+        mktEmailConsent: {
+            bp_eml_mktg_ind: generators.booleanIndicator(),
+            bp_eml_nfn_ind: generators.booleanIndicator(),
+            bp_eml_mktg_bb_intrnt_ind: generators.booleanIndicator(),
+            bp_eml_mktg_wrls_ind: generators.booleanIndicator(),
+            cease_desist_ind: generators.booleanIndicator()
+        },
+        mktPostalConsent: {
+            restricted_ind: generators.booleanIndicator(),
+            cease_desist_ind: generators.booleanIndicator()
+        }
     };
-
-    // Generate wireless entries
-    for (let i = 0; i < wirelessCount; i++) {
-        payload.wireless.push(generateWirelessProfile());
-    }
-
-    // Generate wireline entries
-    for (let i = 0; i < wirelineCount; i++) {
-        payload.wireline.push(generateWirelineProfile());
-    }
-
-    return payload;
-}
-
-// Main generator function for Consent payload
-export function generateConsentPayload(wirelessCount, wirelineCount) {
-    const payload = {
-        neustaroffline: generators.neustarOffline().toLowerCase(),
-        neustaronline: generators.neustarOnline().toLowerCase(),
-        knownuuid: generators.uuid(),
-        wireless: [],
-        wireline: wirelineCount > 0 ? generateWirelineConsent() : {}
-    };
-
-    // Generate wireless consent entries
-    for (let i = 0; i < wirelessCount; i++) {
-        payload.wireless.push(generateWirelessConsent());
-    }
 
     return payload;
 }
@@ -355,17 +477,22 @@ export function generateConsentPayload(wirelessCount, wirelineCount) {
 // OPTIMIZED PAYLOAD GENERATORS
 // ============================================
 // Key mappings for optimization (as documented in constants.js):
-// Profile: nOff=neustarOffline, nOn=neustarOnline, uid=knownUUID, wl=wireless, wn=wireline
+// Profile: nOff=neustarOffline, nOn=neustarOnline, uid=knownUUID, pl=preferredLanguage, wl=wireless, wn=wireline
 // c=ctn, ad=activationDate, ss=subscriberStatus, fni=firstnetIndicator, dv=device, mk=make, id=itemId, md=model
 // sc=soc, is=insuranceSoc, ps=planSoc, ed=planSocEffectiveDate, ct=contract, sd=startDate, rc=reasonCode, st=status
-// cd=contactDetails, ph=mktPhoneNumber, em=mktEmail, pa=mktPostalAddress, a1/a2/a3=addressLine1/2/3, ci=city, s=state, co=country, zp=zipcode, z4=zipcode4
 // bd=banDetails, bn=ban, as=accountStatus, at=accountType, wat=wirelessAccountType, wast=wirelessAccountSubType
 // lt=liabilityType, ap=autoPay, aid=addressId, aty=addressType, bs=billingState, bz=billingZip, bz4=billingZip4
 // fn=firstName, ln=lastName, bl=billingLanguage, cco=convergedCustomerOption, cpni=cpniIndicator
-// Wireline: us=maxUploadSpeed, gn=givenName, fmn=familyName, bal1=billingAddressLine1, bco=billingCountry
-// pt=productTypes, uat=uversedtvAccountType, uast=uversedtvAccountSubType
-// Consent: noff=neustaroffline, non=neustaronline, uid=knownuuid, wl=wireless, wn=wireline
-// sms=smsconsentdetails, eml=emailconsentdetails, bnc=banconsentdetails, pn=pushnotificaitons, prv=privacyconsent
+// Wireline: us=maxUploadSpeed, gn=givenName, fmn=familyName, said=serviceAddressId, saty=serviceAddressType
+// sal1=serviceAddressLine1, saci=serviceAddressCity, saco=serviceAddresscountry, bal1=billingAddressLine1, bco=billingCountry
+// pt=productTypes, uat=uverseAccountType, uast=uverseAccountSubType, em=emailAddress
+// Consent: nOff=neustarOffline, nOn=neustarOnline, uid=knownUUID
+// cd=contactDetails, ph=mktPhoneNumber, em=mktEmail, pa=mktPostalAddress, a1/a2/a3=addressLine1/2/3, ci=city, s=state, co=country, zp=zipcode, z4=zipcode4
+// mpc=mktPhoneConsent, mec=mktEmailConsent, mpoc=mktPostalConsent
+// slw/slb=bp_sms_legal_wrls/bb_ind, smw/smb=bp_sms_mktg_wrls/bb_ind, smc=sms_mktg_consent, smd=sms_mktg_consent_dt
+// smi=bp_sms_mktg_ind, snw/snb=bp_sms_nfn_wrls/bb_ind, cd=cease_desist_ind
+// emi=bp_eml_mktg_ind, eni=bp_eml_nfn_ind, ebi=bp_eml_mktg_bb_intrnt_ind, ewi=bp_eml_mktg_wrls_ind
+// ri=restricted_ind
 
 // Generate optimized wireless profile entry
 function generateOptimizedWirelessProfile() {
@@ -397,20 +524,6 @@ function generateOptimizedWirelessProfile() {
             rc: generators.choice(['NEW', 'UPGRADE', 'RENEWAL']),
             st: generators.choice(['Active', 'Pending', 'Expired'])
         },
-        cd: {
-            ph: generators.phone(),
-            em: generators.email(firstName, lastName),
-            pa: {
-                a1: generators.street(),
-                a2: Math.random() > 0.5 ? `Apt ${Math.floor(Math.random() * 500) + 1}` : '',
-                a3: '',
-                ci: city,
-                s: state,
-                co: 'US',
-                zp: zip,
-                z4: zip4
-            }
-        },
         bd: {
             bn: generators.ban(),
             as: generators.choice(['Active', 'Suspended', 'Closed']),
@@ -440,7 +553,7 @@ function generateOptimizedWirelessProfile() {
 function generateOptimizedWirelineProfile() {
     const firstName = generators.firstName();
     const lastName = generators.lastName();
-    const city = generators.city();
+    const serviceCity = generators.city();
     const state = generators.state();
     const zip = generators.zipcode();
     const zip4 = generators.zipcode4();
@@ -452,21 +565,19 @@ function generateOptimizedWirelineProfile() {
         as: generators.choice(['Active', 'Suspended', 'Closed']),
         gn: firstName,
         fmn: lastName,
-        aid: generators.addressId(),
-        aty: generators.choice(['Residential', 'Business']),
-        a1: generators.street(),
-        ci: city,
-        co: 'US',
+        said: generators.addressId(),
+        saty: generators.choice(['Residential', 'Business']),
+        sal1: generators.street(),
+        saci: serviceCity,
+        saco: 'US',
         bal1: generators.street(),
         bz: zip,
         bz4: zip4,
         bs: state,
         bco: 'US',
-        em: generators.email(firstName, lastName),
-        ph: generators.phone(),
         pt: generators.choice(['Internet', 'Triple Play', 'TV + Internet', 'Phone + Internet']),
-        bl: generators.choice(['EN', 'ES']),
         lt: generators.choice(['Individual', 'Corporate']),
+        em: generators.email(firstName, lastName),
         cco: generators.choice(['Y', 'N']),
         uat: generators.choice(['U200', 'U300', 'U450']),
         uast: generators.choice(['Standard', 'Premium']),
@@ -553,6 +664,30 @@ function generateOptimizedWirelineConsent() {
 
 // Main generator function for Optimized Profile payload
 export function generateOptimizedProfilePayload(wirelessCount, wirelineCount) {
+    const payload = {
+        nOff: generators.neustarOffline(),
+        nOn: generators.neustarOnline(),
+        uid: generators.uuid(),
+        pl: generators.choice(['EN', 'ES', '']),
+        wl: [],
+        wn: []
+    };
+
+    // Generate optimized wireless entries
+    for (let i = 0; i < wirelessCount; i++) {
+        payload.wl.push(generateOptimizedWirelessProfile());
+    }
+
+    // Generate optimized wireline entries
+    for (let i = 0; i < wirelineCount; i++) {
+        payload.wn.push(generateOptimizedWirelineProfile());
+    }
+
+    return payload;
+}
+
+// Main generator function for Optimized Consent payload
+export function generateOptimizedConsentPayload(wirelessCount, wirelineCount) {
     const firstName = generators.firstName();
     const lastName = generators.lastName();
     const city = generators.city();
@@ -578,38 +713,30 @@ export function generateOptimizedProfilePayload(wirelessCount, wirelineCount) {
                 z4: zip4
             }
         },
-        pl: generators.choice(['EN', 'ES', '']),
-        wl: [],
-        wn: []
+        mpc: {
+            slw: generators.booleanIndicator(),
+            slb: generators.booleanIndicator(),
+            smw: generators.booleanIndicator(),
+            smb: generators.booleanIndicator(),
+            smc: generators.booleanIndicator(),
+            smd: generators.date(2023, 2025),
+            smi: generators.booleanIndicator(),
+            snw: generators.booleanIndicator(),
+            snb: generators.booleanIndicator(),
+            cd: generators.booleanIndicator()
+        },
+        mec: {
+            emi: generators.booleanIndicator(),
+            eni: generators.booleanIndicator(),
+            ebi: generators.booleanIndicator(),
+            ewi: generators.booleanIndicator(),
+            cd: generators.booleanIndicator()
+        },
+        mpoc: {
+            ri: generators.booleanIndicator(),
+            cd: generators.booleanIndicator()
+        }
     };
-
-    // Generate optimized wireless entries
-    for (let i = 0; i < wirelessCount; i++) {
-        payload.wl.push(generateOptimizedWirelessProfile());
-    }
-
-    // Generate optimized wireline entries
-    for (let i = 0; i < wirelineCount; i++) {
-        payload.wn.push(generateOptimizedWirelineProfile());
-    }
-
-    return payload;
-}
-
-// Main generator function for Optimized Consent payload
-export function generateOptimizedConsentPayload(wirelessCount, wirelineCount) {
-    const payload = {
-        noff: generators.neustarOffline().toLowerCase(),
-        non: generators.neustarOnline().toLowerCase(),
-        uid: generators.uuid(),
-        wl: [],
-        wn: wirelineCount > 0 ? generateOptimizedWirelineConsent() : {}
-    };
-
-    // Generate optimized wireless consent entries
-    for (let i = 0; i < wirelessCount; i++) {
-        payload.wl.push(generateOptimizedWirelessConsent());
-    }
 
     return payload;
 }
