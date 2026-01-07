@@ -1,0 +1,414 @@
+[
+  {
+    "neustarOffline": "426fa702a3504a5b8f37a2d0f60dd3db",
+    "neustarOnline": "234e289d1bf2465d97482749bff40405",
+    "knownUUID": "6627842837",
+    "preferredLanguage": "EN",
+    "wireless": [
+      {
+        "ctn": "CTN1",
+        "activationDate": "2024-01-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Apple",
+          "itemId": "ITM001",
+          "model": "iPhone 15"
+        },
+        "soc": {
+          "insuranceSoc": "PRTPLUS",
+          "planSoc": "UNLPREM5G",
+          "planSocEffectiveDate": "2024-01-01"
+        },
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN1",
+          "accountStatus": "Active",
+          "accountType": "Family",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Standard",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR001",
+          "addressType": "Residential",
+          "addressLine1": "123 Employee St",
+          "city": "Dallas",
+          "billingState": "TX",
+          "billingZip": "75001",
+          "billingZip4": "1234",
+          "country": "US",
+          "firstName": "Employee",
+          "lastName": "User",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "Y",
+          "cpniIndicator": false
+        }
+      },
+      {
+        "ctn": "CTN2",
+        "activationDate": "2024-01-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Samsung",
+          "itemId": "ITM002",
+          "model": "Galaxy S24"
+        },
+        "soc": {
+          "insuranceSoc": "PRTPLUS",
+          "planSoc": "UNLPREM5G",
+          "planSocEffectiveDate": "2024-01-01"
+        },
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN1",
+          "accountStatus": "Active",
+          "accountType": "Family",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Standard",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR001",
+          "addressType": "Residential",
+          "addressLine1": "123 Employee St",
+          "city": "Dallas",
+          "billingState": "TX",
+          "billingZip": "75001",
+          "billingZip4": "1234",
+          "country": "US",
+          "firstName": "Employee",
+          "lastName": "User",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "Y",
+          "cpniIndicator": false
+        }
+      },
+      {
+        "ctn": "CTN3",
+        "activationDate": "2024-01-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Google",
+          "itemId": "ITM003",
+          "model": "Pixel 8"
+        },
+        "soc": {
+          "insuranceSoc": "PRTBASIC",
+          "planSoc": "UNLPLUS5G",
+          "planSocEffectiveDate": "2024-01-01"
+        },
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN1",
+          "accountStatus": "Active",
+          "accountType": "Family",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Standard",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR001",
+          "addressType": "Residential",
+          "addressLine1": "123 Employee St",
+          "city": "Dallas",
+          "billingState": "TX",
+          "billingZip": "75001",
+          "billingZip4": "1234",
+          "country": "US",
+          "firstName": "Employee",
+          "lastName": "User",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "Y",
+          "cpniIndicator": false
+        }
+      },
+      {
+        "ctn": "CTN4",
+        "activationDate": "2024-01-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Apple",
+          "itemId": "ITM004",
+          "model": "iPhone 14"
+        },
+        "soc": {
+          "insuranceSoc": "PRTBASIC",
+          "planSoc": "UNLSTART5G",
+          "planSocEffectiveDate": "2024-01-01"
+        },
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN1",
+          "accountStatus": "Active",
+          "accountType": "Family",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Standard",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR001",
+          "addressType": "Residential",
+          "addressLine1": "123 Employee St",
+          "city": "Dallas",
+          "billingState": "TX",
+          "billingZip": "75001",
+          "billingZip4": "1234",
+          "country": "US",
+          "firstName": "Employee",
+          "lastName": "User",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "Y",
+          "cpniIndicator": false
+        }
+      },
+      {
+        "ctn": "CTN1-BAN2",
+        "activationDate": "2024-02-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Samsung",
+          "itemId": "ITM005",
+          "model": "Galaxy A54"
+        },
+        "soc": {
+          "insuranceSoc": "PRTPLUS",
+          "planSoc": "UNLPREM5G",
+          "planSocEffectiveDate": "2024-02-01"
+        },
+        "contract": {
+          "startDate": "2024-02-01",
+          "endDate": "2026-02-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN2",
+          "accountStatus": "Active",
+          "accountType": "Family",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Premium",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR002",
+          "addressType": "Residential",
+          "addressLine1": "456 Parents Ave",
+          "city": "Dallas",
+          "billingState": "TX",
+          "billingZip": "75002",
+          "billingZip4": "5678",
+          "country": "US",
+          "firstName": "Employee",
+          "lastName": "Parents",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "N",
+          "cpniIndicator": false
+        }
+      },
+      {
+        "ctn": "CTN2-BAN2",
+        "activationDate": "2024-02-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Apple",
+          "itemId": "ITM006",
+          "model": "iPhone 13"
+        },
+        "soc": {
+          "insuranceSoc": "PRTBASIC",
+          "planSoc": "UNLPLUS5G",
+          "planSocEffectiveDate": "2024-02-01"
+        },
+        "contract": {
+          "startDate": "2024-02-01",
+          "endDate": "2026-02-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN2",
+          "accountStatus": "Active",
+          "accountType": "Family",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Premium",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR002",
+          "addressType": "Residential",
+          "addressLine1": "456 Parents Ave",
+          "city": "Dallas",
+          "billingState": "TX",
+          "billingZip": "75002",
+          "billingZip4": "5678",
+          "country": "US",
+          "firstName": "Employee",
+          "lastName": "Parents",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "N",
+          "cpniIndicator": false
+        }
+      }
+    ],
+    "wireline": [
+      {
+        "ban": "BAN-INTERNET",
+        "maxUploadSpeed": "1Gbps",
+        "accountType": "Individual",
+        "accountStatus": "Active",
+        "givenName": "Employee",
+        "familyName": "User",
+        "serviceAddressId": "SADDR001",
+        "serviceAddressType": "Residential",
+        "serviceAddressLine1": "123 Employee St",
+        "serviceAddressCity": "Dallas",
+        "serviceAddresscountry": "US",
+        "billingAddressLine1": "123 Employee St",
+        "billingZip": "75001",
+        "billingZip4": "1234",
+        "billingState": "TX",
+        "billingCountry": "US",
+        "productTypes": "Triple Play",
+        "liabilityType": "Individual",
+        "emailAddress": "employee@example.com",
+        "convergedCustomerOption": "Y",
+        "uverseAccountType": "U450",
+        "uverseAccountSubType": "Premium",
+        "autoPay": "Y",
+        "contract": {
+          "startDate": "2024-01-01",
+          "endDate": "2026-01-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "device": {
+          "make": "Arris",
+          "itemId": "DEV001",
+          "model": "BGW320"
+        },
+        "soc": {
+          "insuranceSoc": "PRTPLUS",
+          "planSoc": "FIBER1000",
+          "planSocEffectiveDate": "2024-01-01"
+        }
+      }
+    ]
+  },
+  {
+    "neustarOffline": "da3621bc68ec478dad16a72e5162ede6",
+    "neustarOnline": "6a90742b5a4145f7a53a7fc8a7131b50",
+    "knownUUID": "12847",
+    "preferredLanguage": "EN",
+    "wireless": [
+      {
+        "ctn": "CTN1-BAN2",
+        "activationDate": "2024-02-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Samsung",
+          "itemId": "ITM005",
+          "model": "Galaxy A54"
+        },
+        "soc": {
+          "insuranceSoc": "PRTPLUS",
+          "planSoc": "UNLPREM5G",
+          "planSocEffectiveDate": "2024-02-01"
+        },
+        "contract": {
+          "startDate": "2024-02-01",
+          "endDate": "2026-02-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN2",
+          "accountStatus": "Active",
+          "accountType": "Family",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Premium",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR002",
+          "addressType": "Residential",
+          "addressLine1": "456 Parents Ave",
+          "city": "Dallas",
+          "billingState": "TX",
+          "billingZip": "75002",
+          "billingZip4": "5678",
+          "country": "US",
+          "firstName": "Mom",
+          "lastName": "Employee",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "N",
+          "cpniIndicator": false
+        }
+      },
+      {
+        "ctn": "CTN2-BAN2",
+        "activationDate": "2024-02-01",
+        "subscriberStatus": "Active",
+        "firstnetIndicator": false,
+        "device": {
+          "make": "Apple",
+          "itemId": "ITM006",
+          "model": "iPhone 13"
+        },
+        "soc": {
+          "insuranceSoc": "PRTBASIC",
+          "planSoc": "UNLPLUS5G",
+          "planSocEffectiveDate": "2024-02-01"
+        },
+        "contract": {
+          "startDate": "2024-02-01",
+          "endDate": "2026-02-01",
+          "reasonCode": "NEW",
+          "status": "Active"
+        },
+        "banDetails": {
+          "ban": "BAN2",
+          "accountStatus": "Active",
+          "accountType": "Family",
+          "wirelessAccountType": "Postpaid",
+          "wirelessAccountSubType": "Premium",
+          "liabilityType": "Individual",
+          "autoPay": true,
+          "addressId": "ADDR002",
+          "addressType": "Residential",
+          "addressLine1": "456 Parents Ave",
+          "city": "Dallas",
+          "billingState": "TX",
+          "billingZip": "75002",
+          "billingZip4": "5678",
+          "country": "US",
+          "firstName": "Mom",
+          "lastName": "Employee",
+          "billingLanguage": "EN",
+          "convergedCustomerOption": "N",
+          "cpniIndicator": false
+        }
+      }
+    ],
+    "wireline": []
+  }
+]
